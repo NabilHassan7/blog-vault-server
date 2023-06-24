@@ -47,6 +47,11 @@ app.get('/news/:id', (req,res) =>{
     res.send(selectedNews);
 })
 
+// API call to get all news
+app.get('/news', (req,res) =>{
+    res.send(news);
+})
+
 app.listen(port, () =>{
     console.log('Base server is running on port 5000');
 })
