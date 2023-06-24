@@ -10,6 +10,8 @@ app.use(cors());
 
 // variable stores the data received from news categories
 const news_categories = require('./data/news_categories.json');
+// variable stores the data received from news 
+const news = require('./data/news.json');
 
 // Custom API to get info
 
@@ -21,6 +23,28 @@ app.get('/', (req, res) => {
 // API call to get news categories
 app.get('/news-categories', (req, res) =>{
     res.send(news_categories);
+})
+
+// API call to get news according to category
+// filter used to select all matching condition
+app.get('/category/:id', (req,res) =>{
+    const id = req.params.id;
+    // 0 is select all news category
+    if(id === '0'){
+        res.send(news); // sends back all news
+    }
+    else{
+        const categoryNews = news.filter( n => n.category_id === id);
+        res.send(categoryNews);
+    }   
+})
+
+// API call to get specific article in details
+// find used due to unique nature of id
+app.get('/news/:id', (req,res) =>{
+    const id = req.params.id;
+    const selectedNews = news.find( n => n._id === id);
+    res.send(selectedNews);
 })
 
 app.listen(port, () =>{
