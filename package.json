@@ -1,17 +1,18 @@
 {
   "name": "blog-vault-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "backend server for the blog vault website",
+  "main": "./functions/api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "netlify deploy --prod"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NabilHassan7/blog-vault-server.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fakrul Ibne Hassan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NabilHassan7/blog-vault-server/issues"
@@ -19,6 +20,8 @@
   "homepage": "https://github.com/NabilHassan7/blog-vault-server#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
-  }
+    "express": "^4.18.2",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {}
 }
